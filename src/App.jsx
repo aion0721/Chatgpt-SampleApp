@@ -8,11 +8,12 @@ function App() {
 
   const handlePrompt = async () => {
     try {
+      setResponse("Loading...");
       const response = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         JSON.stringify({
           model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: "Javascriptを教えてください。" }],
+          messages: [{ role: "user", content: prompt }],
         }),
         {
           headers: {
@@ -21,6 +22,7 @@ function App() {
           },
         }
       );
+      console.log(response);
       setResponse(response.data.choices[0].message.content);
     } catch (error) {
       console.error(`Error ChatGPT: ${error}`);
@@ -37,6 +39,7 @@ function App() {
       <button onClick={() => console.log(import.meta.env.VITE_OPENAI_API_KEY)}>
         api
       </button>
+      <button onClick={() => console.log(response)}>response</button>
       {response}
     </>
   );
