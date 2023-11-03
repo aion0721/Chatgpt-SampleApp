@@ -60,13 +60,20 @@ function App() {
             {response === "Loading" ? <LoadingDots /> : response}
           </div>
         </div>
-        <button
-          onClick={() => console.log(import.meta.env.VITE_OPENAI_API_KEY)}
-        >
-          api
-        </button>
-        <button onClick={() => console.log(response)}>response</button>
-        <button onClick={setResponseSample}>set</button>
+        <div className="info-button">
+          <button
+            className="button"
+            onClick={() => console.log(import.meta.env.VITE_OPENAI_API_KEY)}
+          >
+            Show API Key
+          </button>
+          <button className="button" onClick={() => console.log(response)}>
+            Print Response to Console
+          </button>
+          <button className="button" onClick={setResponseSample}>
+            Set Sample Response
+          </button>
+        </div>
       </div>
     </>
   );

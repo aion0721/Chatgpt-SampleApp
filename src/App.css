@@ -10,8 +10,11 @@ html {
   align-items: center;
 }
 
+#root {
+  width: 80%;
+}
+
 .chat-container {
-  width: 100%;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -93,4 +96,35 @@ html {
 .text {
   margin: 0;
   font-size: 1rem;
+}
+
+.button {
+  padding: 10px 20px; /* ボタンの内側の余白を設定 */
+  font-size: 16px; /* テキストのサイズを設定 */
+  text-transform: uppercase; /* テキストを大文字に */
+  color: white; /* テキストの色を白に */
+  background: #007bff; /* ボタンの背景色を設定 */
+  border: none; /* 境界線を削除 */
+  border-radius: 5px; /* 角の丸みを設定 */
+  cursor: pointer; /* ホバー時のカーソルをポインターに */
+  transition: background-color 0.3s ease-in-out, transform 0.1s; /* 色と変形のトランジションを設定 */
+  margin: 10px;
+  width: 30%;
+}
+
+.button:hover {
+  background: #0056b3; /* ホバー時の背景色を暗く */
+  transform: translateY(-2px); /* ホバー時にボタンを少し上に移動 */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.5); /* ホバー時の影を追加 */
+}
+
+.button:active {
+  transform: translateY(1px); /* クリック時にボタンを少し下に移動 */
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.5); /* クリック時の影を少し小さく */
+}
+
+.info-button {
+  display: flex; /* Flexbox を使用 */
+  justify-content: center; /* 水平方向の中心に */
+  align-items: center; /* 垂直方向の中心に */
 }
