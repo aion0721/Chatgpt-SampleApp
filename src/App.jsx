@@ -52,7 +52,7 @@ function App() {
             onChange={(e) => setPrompt(e.target.value)}
           ></input>
           <button onClick={() => handlePrompt()} className="send-button">
-            prompt
+            Ask
           </button>
         </div>
         <div className="message gpt-response">

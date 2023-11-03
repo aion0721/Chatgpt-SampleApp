@@ -1,8 +1,27 @@
-# React + Vite
+# ChatGPT App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+このリポジトリは技術書典 15 にて頒布する「ChatGPT アプリを作って学ぶ React」のサンプルアプリとなります。
 
-Currently, two official plugins are available:
+## 使い方
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+とりあえず実行するには以下の手順です。
+
+1. API キー指定
+
+ルートディレクトリに「.env」ファイルを作り、以下のように APIKey を指定してください。
+
+```.env
+VITE_OPENAI_API_KEY="<WRITE YOUR API KEY>"
+```
+
+2. モジュールインストール
+
+```
+yarn install
+```
+
+3. 実行
+
+```
+yarn dev
+```
