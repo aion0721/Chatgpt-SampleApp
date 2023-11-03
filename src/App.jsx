@@ -29,7 +29,7 @@ function App() {
       setResponse(response.data.choices[0].message.content);
       setPrompt("");
     } catch (error) {
-      setPrompt(`Error ChatGPT: ${error}`);
+      setResponse(`Error ChatGPT: ${error}`);
     }
   };
   const setResponseSample = () => {
