@@ -2,11 +2,11 @@ import { useState } from "react";
 import "./App.css";
 import axios from "axios";
 import LoadingDots from "./LoadingDots";
-
 function App() {
   const [prompt, setPrompt] = useState("");
   const [question, setQuestion] = useState("");
   const [response, setResponse] = useState("");
+  const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
   const handlePrompt = async () => {
     try {
@@ -20,7 +20,7 @@ function App() {
         }),
         {
           headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+            Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
           },
         }
@@ -29,7 +29,7 @@ function App() {
       setResponse(response.data.choices[0].message.content);
       setPrompt("");
     } catch (error) {
-      console.error(`Error ChatGPT: ${error}`);
+      setPrompt(`Error ChatGPT: ${error}`);
     }
   };
   const setResponseSample = () => {
@@ -74,12 +74,6 @@ function App() {
         </section>
 
         <div className="info-button">
-          <button
-            className="button"
-            onClick={() => console.log(import.meta.env.VITE_OPENAI_API_KEY)}
-          >
-            Show API Key
-          </button>
           <button className="button" onClick={() => console.log(response)}>
             Print Response to Console
           </button>
