@@ -30,20 +30,6 @@ html {
   text-align: center;
 }
 
-.chat-messages {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* 応答を左側に揃える */
-  padding: 1rem;
-  height: 200px; /* 応答エリアの高さを調整 */
-  overflow-y: auto;
-  background: #f4f7f6; /* 背景色を設定 */
-  border-radius: 8px;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 80%; /* ウィンドウの80%の横幅に設定 */
-  margin: 0 auto; /* 上下は0、左右は自動で中央寄せ */
-}
-
 .message-form {
   display: flex;
   padding: 1rem;
@@ -71,7 +57,16 @@ html {
   background: #424242;
 }
 
-/* Add additional styles as needed */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 応答を左側に揃える */
+  padding: 1rem;
+  overflow-y: auto;
+  background: #f4f7f6; /* 背景色を設定 */
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 .message {
   background: #ffffff;
@@ -81,6 +76,7 @@ html {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: calc(100% - 20px); /* コンテナ内での最大横幅を設定 */
   word-wrap: break-word; /* 長い単語も折り返す */
+  max-width: 80%;
 }
 
 .user-message {

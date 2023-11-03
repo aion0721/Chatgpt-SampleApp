@@ -5,11 +5,13 @@ import LoadingDots from "./LoadingDots";
 
 function App() {
   const [prompt, setPrompt] = useState("");
-  const [response, setResponse] = useState("Answer Area");
+  const [question, setQuestion] = useState("");
+  const [response, setResponse] = useState("");
 
   const handlePrompt = async () => {
     try {
       setResponse("Loading");
+      setQuestion(prompt);
       const response = await axios.post(
         "https://api.openai.com/v1/chat/completions",
         JSON.stringify({
@@ -25,6 +27,7 @@ function App() {
       );
       console.log(response);
       setResponse(response.data.choices[0].message.content);
+      setPrompt("");
     } catch (error) {
       console.error(`Error ChatGPT: ${error}`);
     }
@@ -41,8 +44,6 @@ function App() {
           <h1>ChatGPT App</h1>
         </header>
 
-        <section className="chat-message"></section>
-
         <div className="message-form">
           <input
             type="text"
@@ -55,11 +56,23 @@ function App() {
             Ask
           </button>
         </div>
-        <div className="message gpt-response">
-          <div className="text">
-            {response === "Loading" ? <LoadingDots /> : response}
-          </div>
-        </div>
+
+        <section className="chat-messages">
+          {question && (
+            <div className="message user-message">
+              <div className="text">{question}</div>
+            </div>
+          )}
+
+          {response && (
+            <div className="message gpt-response">
+              <div className="text">
+                {response === "Loading" ? <LoadingDots /> : response}
+              </div>
+            </div>
+          )}
+        </section>
+
         <div className="info-button">
           <button
             className="button"
